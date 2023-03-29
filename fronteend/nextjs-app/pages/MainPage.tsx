@@ -1,7 +1,5 @@
 import styles from "@/styles/Home.module.css";
-
-// import allTypes
-import { SemesterResponse } from "@/allTypes";
+import Student from "./Student";
 
 // Tanstack Query imports
 import {
@@ -14,7 +12,6 @@ import {
 export default function MainPage() {
   const fetchSemesters = async (): Promise<any[]> => {
     const semesters = await fetch("http://localhost:3000/semesters");
-    console.log(semesters);
     const semestersJson = await semesters.json();
     console.log(semestersJson);
     return semestersJson;
@@ -34,19 +31,19 @@ export default function MainPage() {
   }
 
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>Test</p>
+    <main>
+      <div>
         <ul>
-          {data?.map((todo) => (
-            <ul key={todo[0]}>
-              <li>{todo[0]}</li>
-              <li>{todo[1]}</li>
-              <li>{todo[2]}</li>
-              <li>{todo[3].toString()}</li>
+          {data?.map((semester) => (
+            <ul key={semester[0]}>
+              <li>{semester[0]}</li>
+              <li>{semester[1]}</li>
+              <li>{semester[2]}</li>
+              <li>{semester[3].toString()}</li>
             </ul>
           ))}
         </ul>
+        <Student studentID="6" />
       </div>
     </main>
   );
