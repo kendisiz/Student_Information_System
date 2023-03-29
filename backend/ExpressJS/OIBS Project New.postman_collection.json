@@ -1,0 +1,1224 @@
+{
+	"info": {
+		"_postman_id": "167174af-68a3-4c2c-914d-2ae3840a169a",
+		"name": "OIBS Project New",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26211311"
+	},
+	"item": [
+		{
+			"name": "Students",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"    <table bgcolor=\"#FFFFFF\">\r",
+							"        <tr>\r",
+							"            <th>Student ID</th>\r",
+							"            <th>Advisor ID</th>\r",
+							"            <th>Departmen ID</th>\r",
+							"            <th>TCNO</th>\r",
+							"            <th>Name</th>\r",
+							"            <th>Surname</th>\r",
+							"            <th>email</th>\r",
+							"            <th>GPA</th>\r",
+							"            <th>Total Credits</th>\r",
+							"            <th>Last Update Time</th>\r",
+							"        </tr>\r",
+							"\r",
+							"        {{#each response}}\r",
+							"            <tr>\r",
+							"                <td>{{0}}</td>\r",
+							"                <td>{{1}}</td>\r",
+							"                <td>{{2}}</td>\r",
+							"                <td>{{3}}</td>\r",
+							"                <td>{{4}}</td>\r",
+							"                <td>{{5}}</td>\r",
+							"                <td>{{6}}</td>\r",
+							"                <td>{{7}}</td>\r",
+							"                <td>{{8}}</td>\r",
+							"                <td>{{9}}</td>\r",
+							"            </tr>\r",
+							"        {{/each}}\r",
+							"    </table>\r",
+							"`;\r",
+							"\r",
+							"\r",
+							"// Set visualizer\r",
+							"pm.visualizer.set(template, {\r",
+							"    // Pass the response body parsed as JSON as `data`\r",
+							"    response: pm.response.json()\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/students",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Students/:id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"    <table bgcolor=\"#FFFFFF\">\r",
+							"        <tr>\r",
+							"            <th>Student ID</th>\r",
+							"            <th>Advisor ID</th>\r",
+							"            <th>Departmen ID</th>\r",
+							"            <th>TCNO</th>\r",
+							"            <th>Name</th>\r",
+							"            <th>Surname</th>\r",
+							"            <th>email</th>\r",
+							"            <th>GPA</th>\r",
+							"            <th>Total Credits</th>\r",
+							"            <th>Last Update Time</th>\r",
+							"        </tr>\r",
+							"\r",
+							"        {{#each response}}\r",
+							"            <tr>\r",
+							"                <td>{{0}}</td>\r",
+							"                <td>{{1}}</td>\r",
+							"                <td>{{2}}</td>\r",
+							"                <td>{{3}}</td>\r",
+							"                <td>{{4}}</td>\r",
+							"                <td>{{5}}</td>\r",
+							"                <td>{{6}}</td>\r",
+							"                <td>{{7}}</td>\r",
+							"                <td>{{8}}</td>\r",
+							"                <td>{{9}}</td>\r",
+							"            </tr>\r",
+							"        {{/each}}\r",
+							"    </table>\r",
+							"`;\r",
+							"\r",
+							"\r",
+							"// Set visualizer\r",
+							"pm.visualizer.set(template, {\r",
+							"    // Pass the response body parsed as JSON as `data`\r",
+							"    response: pm.response.json()\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/students/6",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students",
+						"6"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Fatih",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Student Insert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/students?advisor_id=1&department_id=1&tcno=12345678907&name=Ali&surname=Candan&email=candanhalimemccandan@gmail.com&GPA=3.21&total_credits=185&last_update_time=20230102",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students"
+					],
+					"query": [
+						{
+							"key": "advisor_id",
+							"value": "1"
+						},
+						{
+							"key": "department_id",
+							"value": "1"
+						},
+						{
+							"key": "tcno",
+							"value": "12345678907"
+						},
+						{
+							"key": "name",
+							"value": "Ali"
+						},
+						{
+							"key": "surname",
+							"value": "Candan"
+						},
+						{
+							"key": "email",
+							"value": "candanhalimemccandan@gmail.com"
+						},
+						{
+							"key": "GPA",
+							"value": "3.21"
+						},
+						{
+							"key": "total_credits",
+							"value": "185"
+						},
+						{
+							"key": "last_update_time",
+							"value": "20230102"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Professors",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"    <table bgcolor=\"#FFFFFF\">\r",
+							"        <tr>\r",
+							"            <th>Academic Personnel ID</th>\r",
+							"            <th>Department ID</th>\r",
+							"            <th>TCNO</th>\r",
+							"            <th>Name</th>\r",
+							"            <th>Surname</th>\r",
+							"            <th>Email</th>\r",
+							"            <th>Office ID</th>\r",
+							"            <th>Phone number</th>\r",
+							"            <th>Website URL</th>\r",
+							"            <th>Research Area</th>\r",
+							"        </tr>\r",
+							"\r",
+							"        {{#each response}}\r",
+							"            <tr>\r",
+							"                <td>{{0}}</td>\r",
+							"                <td>{{1}}</td>\r",
+							"                <td>{{2}}</td>\r",
+							"                <td>{{3}}</td>\r",
+							"                <td>{{4}}</td>\r",
+							"                <td>{{5}}</td>\r",
+							"                <td>{{6}}</td>\r",
+							"                <td>{{7}}</td>\r",
+							"                <td>{{8}}</td>\r",
+							"                <td>{{9}}</td>\r",
+							"            </tr>\r",
+							"        {{/each}}\r",
+							"    </table>\r",
+							"`;\r",
+							"\r",
+							"\r",
+							"// Set visualizer\r",
+							"pm.visualizer.set(template, {\r",
+							"    // Pass the response body parsed as JSON as `data`\r",
+							"    response: pm.response.json()\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/professors",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"professors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Professors/:id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"    <table bgcolor=\"#FFFFFF\">\r",
+							"        <tr>\r",
+							"            <th>Academic Personnel ID</th>\r",
+							"            <th>Department ID</th>\r",
+							"            <th>TCNO</th>\r",
+							"            <th>Name</th>\r",
+							"            <th>Surname</th>\r",
+							"            <th>Email</th>\r",
+							"            <th>Office ID</th>\r",
+							"            <th>Phone number</th>\r",
+							"            <th>Website URL</th>\r",
+							"            <th>Research Area</th>\r",
+							"        </tr>\r",
+							"\r",
+							"        {{#each response}}\r",
+							"            <tr>\r",
+							"                <td>{{0}}</td>\r",
+							"                <td>{{1}}</td>\r",
+							"                <td>{{2}}</td>\r",
+							"                <td>{{3}}</td>\r",
+							"                <td>{{4}}</td>\r",
+							"                <td>{{5}}</td>\r",
+							"                <td>{{6}}</td>\r",
+							"                <td>{{7}}</td>\r",
+							"                <td>{{8}}</td>\r",
+							"                <td>{{9}}</td>\r",
+							"            </tr>\r",
+							"        {{/each}}\r",
+							"    </table>\r",
+							"`;\r",
+							"\r",
+							"\r",
+							"// Set visualizer\r",
+							"pm.visualizer.set(template, {\r",
+							"    // Pass the response body parsed as JSON as `data`\r",
+							"    response: pm.response.json()\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/professors/4",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"professors",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Professor Insert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/professors?department_id=1&tcno=12345678910&name=Canan&surname=Karatay&email=cananteyze@yahoo.com&office_id=Z98&phone_number=3123002010&website_url=cananteyze.com.tr&research_area=Ekmek Yemeyin",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"professors"
+					],
+					"query": [
+						{
+							"key": "department_id",
+							"value": "1"
+						},
+						{
+							"key": "tcno",
+							"value": "12345678910"
+						},
+						{
+							"key": "name",
+							"value": "Canan"
+						},
+						{
+							"key": "surname",
+							"value": "Karatay"
+						},
+						{
+							"key": "email",
+							"value": "cananteyze@yahoo.com"
+						},
+						{
+							"key": "office_id",
+							"value": "Z98"
+						},
+						{
+							"key": "phone_number",
+							"value": "3123002010"
+						},
+						{
+							"key": "website_url",
+							"value": "cananteyze.com.tr"
+						},
+						{
+							"key": "research_area",
+							"value": "Ekmek Yemeyin"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Semesters",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"    <table bgcolor=\"#FFFFFF\">\r",
+							"        <tr>\r",
+							"            <th>Semester ID</th>\r",
+							"            <th>Year</th>\r",
+							"            <th>Season</th>\r",
+							"            <th>Is Active</th>\r",
+							"        </tr>\r",
+							"\r",
+							"        {{#each response}}\r",
+							"            <tr>\r",
+							"                <td>{{0}}</td>\r",
+							"                <td>{{1}}</td>\r",
+							"                <td>{{2}}</td>\r",
+							"                <td>{{3}}</td>\r",
+							"            </tr>\r",
+							"        {{/each}}\r",
+							"    </table>\r",
+							"`;\r",
+							"\r",
+							"\r",
+							"// Set visualizer\r",
+							"pm.visualizer.set(template, {\r",
+							"    // Pass the response body parsed as JSON as `data`\r",
+							"    response: pm.response.json()\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/semesters",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"semesters"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Semesters/:id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"    <table bgcolor=\"#FFFFFF\">\r",
+							"        <tr>\r",
+							"            <th>Semester ID</th>\r",
+							"            <th>Year</th>\r",
+							"            <th>Season</th>\r",
+							"            <th>Is Active</th>\r",
+							"        </tr>\r",
+							"\r",
+							"        {{#each response}}\r",
+							"            <tr>\r",
+							"                <td>{{0}}</td>\r",
+							"                <td>{{1}}</td>\r",
+							"                <td>{{2}}</td>\r",
+							"                <td>{{3}}</td>\r",
+							"            </tr>\r",
+							"        {{/each}}\r",
+							"    </table>\r",
+							"`;\r",
+							"\r",
+							"\r",
+							"// Set visualizer\r",
+							"pm.visualizer.set(template, {\r",
+							"    // Pass the response body parsed as JSON as `data`\r",
+							"    response: pm.response.json()\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/semesters/5",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"semesters",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Semester Insert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/semesters?year_=2022&season=Summer&is_active=0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"semesters"
+					],
+					"query": [
+						{
+							"key": "year_",
+							"value": "2022"
+						},
+						{
+							"key": "season",
+							"value": "Summer"
+						},
+						{
+							"key": "is_active",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Students/:id/sections",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"    <table bgcolor=\"#FFFFFF\">\r",
+							"        <tr>\r",
+							"            <th>Section ID</th>\r",
+							"            <th>Grade</th>\r",
+							"            <th>Academic Personnel ID</th>\r",
+							"            <th>Classroom ID</th>\r",
+							"            <th>Course ID</th>\r",
+							"            <th>Semester ID</th>\r",
+							"            <th>Section number</th>\r",
+							"            <th>Weekday</th>\r",
+							"            <th>Start time</th>\r",
+							"            <th>End time</th>\r",
+							"        </tr>\r",
+							"\r",
+							"        {{#each response}}\r",
+							"            <tr>\r",
+							"                <td>{{0}}</td>\r",
+							"                <td>{{1}}</td>\r",
+							"                <td>{{2}}</td>\r",
+							"                <td>{{3}}</td>\r",
+							"                <td>{{4}}</td>\r",
+							"                <td>{{5}}</td>\r",
+							"                <td>{{6}}</td>\r",
+							"                <td>{{7}}</td>\r",
+							"                <td>{{8}}</td>\r",
+							"                <td>{{9}}</td>\r",
+							"                <td>{{10}}</td>\r",
+							"            </tr>\r",
+							"        {{/each}}\r",
+							"    </table>\r",
+							"`;\r",
+							"\r",
+							"\r",
+							"// Set visualizer\r",
+							"pm.visualizer.set(template, {\r",
+							"    // Pass the response body parsed as JSON as `data`\r",
+							"    response: pm.response.json()\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/students/2/sections",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students",
+						"2",
+						"sections"
+					],
+					"query": [
+						{
+							"key": "semester_id",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Student/:id/Sections Insert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/students/2/sections?section_id=11",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students",
+						"2",
+						"sections"
+					],
+					"query": [
+						{
+							"key": "section_id",
+							"value": "11"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Students/:id/sections Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/students/2/sections?section_id=11",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students",
+						"2",
+						"sections"
+					],
+					"query": [
+						{
+							"key": "section_id",
+							"value": "11"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Students/:id/sections PUT",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/students/2/sections?old_section_id=6&new_section_id=11",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students",
+						"2",
+						"sections"
+					],
+					"query": [
+						{
+							"key": "old_section_id",
+							"value": "6"
+						},
+						{
+							"key": "new_section_id",
+							"value": "11"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sections",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"    <table bgcolor=\"#FFFFFF\">\r",
+							"        <tr>\r",
+							"            <th>Section ID</th>\r",
+							"            <th>Academic Personnel ID</th>\r",
+							"            <th>Classroom ID</th>\r",
+							"            <th>Course ID</th>\r",
+							"            <th>Semester ID</th>\r",
+							"            <th>Section number</th>\r",
+							"            <th>Weekday</th>\r",
+							"            <th>Start time</th>\r",
+							"            <th>End time</th>\r",
+							"            <th>Number of students</th>\r",
+							"        </tr>\r",
+							"\r",
+							"        {{#each response}}\r",
+							"            <tr>\r",
+							"                <td>{{0}}</td>\r",
+							"                <td>{{1}}</td>\r",
+							"                <td>{{2}}</td>\r",
+							"                <td>{{3}}</td>\r",
+							"                <td>{{4}}</td>\r",
+							"                <td>{{5}}</td>\r",
+							"                <td>{{6}}</td>\r",
+							"                <td>{{7}}</td>\r",
+							"                <td>{{8}}</td>\r",
+							"                <td>{{9}}</td>\r",
+							"                <td>{{10}}</td>\r",
+							"            </tr>\r",
+							"        {{/each}}\r",
+							"    </table>\r",
+							"`;\r",
+							"\r",
+							"\r",
+							"// Set visualizer\r",
+							"pm.visualizer.set(template, {\r",
+							"    // Pass the response body parsed as JSON as `data`\r",
+							"    response: pm.response.json()\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/sections",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"sections"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sections/:id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"    <table bgcolor=\"#FFFFFF\">\r",
+							"        <tr>\r",
+							"            <th>Section ID</th>\r",
+							"            <th>Academic Personnel ID</th>\r",
+							"            <th>Classroom ID</th>\r",
+							"            <th>Semester ID</th>\r",
+							"            <th>Section number</th>\r",
+							"            <th>Weekday</th>\r",
+							"            <th>Start time</th>\r",
+							"            <th>End time</th>\r",
+							"            <th>Capacity</th>\r",
+							"            <th>Number of students</th>\r",
+							"        </tr>\r",
+							"\r",
+							"        {{#each response}}\r",
+							"            <tr>\r",
+							"                <td>{{0}}</td>\r",
+							"                <td>{{1}}</td>\r",
+							"                <td>{{2}}</td>\r",
+							"                <td>{{3}}</td>\r",
+							"                <td>{{4}}</td>\r",
+							"                <td>{{5}}</td>\r",
+							"                <td>{{6}}</td>\r",
+							"                <td>{{7}}</td>\r",
+							"                <td>{{8}}</td>\r",
+							"                <td>{{9}}</td>\r",
+							"                <td>{{10}}</td>\r",
+							"                <td>{{11}}</td>\r",
+							"            </tr>\r",
+							"        {{/each}}\r",
+							"    </table>\r",
+							"`;\r",
+							"\r",
+							"\r",
+							"// Set visualizer\r",
+							"pm.visualizer.set(template, {\r",
+							"    // Pass the response body parsed as JSON as `data`\r",
+							"    response: pm.response.json()\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/sections/11",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"sections",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Section Insert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/sections?academic_personnel_id=4&classroom_id=3&course_id=2&semester_id=1&section_number=1&week_day=Monday&start_time=10:00&end_time=12:00",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"sections"
+					],
+					"query": [
+						{
+							"key": "academic_personnel_id",
+							"value": "4"
+						},
+						{
+							"key": "classroom_id",
+							"value": "3"
+						},
+						{
+							"key": "course_id",
+							"value": "2"
+						},
+						{
+							"key": "semester_id",
+							"value": "1"
+						},
+						{
+							"key": "section_number",
+							"value": "1"
+						},
+						{
+							"key": "week_day",
+							"value": "Monday"
+						},
+						{
+							"key": "start_time",
+							"value": "10:00"
+						},
+						{
+							"key": "end_time",
+							"value": "12:00"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Professors/:id/sections",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"    <table bgcolor=\"#FFFFFF\">\r",
+							"        <tr>\r",
+							"            <th>Section ID</th>\r",
+							"            <th>Classroom ID</th>\r",
+							"            <th>Course ID</th>\r",
+							"            <th>Semester ID</th>\r",
+							"            <th>Section number</th>\r",
+							"            <th>Weekday</th>\r",
+							"            <th>Start time</th>\r",
+							"            <th>End time</th>\r",
+							"            <th>Department ID</th>\r",
+							"            <th>Course name</th>\r",
+							"            <th>Credits</th>\r",
+							"            <th>Year</th>\r",
+							"            <th>Season</th>\r",
+							"            <th>Is active</th>\r",
+							"        </tr>\r",
+							"\r",
+							"        {{#each response}}\r",
+							"            <tr>\r",
+							"                <td>{{0}}</td>\r",
+							"                <td>{{1}}</td>\r",
+							"                <td>{{2}}</td>\r",
+							"                <td>{{3}}</td>\r",
+							"                <td>{{4}}</td>\r",
+							"                <td>{{5}}</td>\r",
+							"                <td>{{6}}</td>\r",
+							"                <td>{{7}}</td>\r",
+							"                <td>{{8}}</td>\r",
+							"                <td>{{9}}</td>\r",
+							"                <td>{{10}}</td>\r",
+							"                <td>{{11}}</td>\r",
+							"                <td>{{12}}</td>\r",
+							"                <td>{{13}}</td>\r",
+							"            </tr>\r",
+							"        {{/each}}\r",
+							"    </table>\r",
+							"`;\r",
+							"\r",
+							"\r",
+							"// Set visualizer\r",
+							"pm.visualizer.set(template, {\r",
+							"    // Pass the response body parsed as JSON as `data`\r",
+							"    response: pm.response.json()\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/Professors/4/sections",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"Professors",
+						"4",
+						"sections"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Professors/:id/sectionEnrollments",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"    <table bgcolor=\"#FFFFFF\">\r",
+							"        <tr>\r",
+							"            <th>Section ID</th>\r",
+							"            <th>Grade</th>\r",
+							"            <th>Course ID</th>\r",
+							"            <th>Course Name</th>\r",
+							"            <th>Student ID</th>\r",
+							"            <th>Student name</th>\r",
+							"            <th>Student surname</th>\r",
+							"            <th>Student email</th>\r",
+							"        </tr>\r",
+							"\r",
+							"        {{#each response}}\r",
+							"            <tr>\r",
+							"                <td>{{0}}</td>\r",
+							"                <td>{{1}}</td>\r",
+							"                <td>{{2}}</td>\r",
+							"                <td>{{3}}</td>\r",
+							"                <td>{{4}}</td>\r",
+							"                <td>{{5}}</td>\r",
+							"                <td>{{6}}</td>\r",
+							"                <td>{{7}}</td>\r",
+							"            </tr>\r",
+							"        {{/each}}\r",
+							"    </table>\r",
+							"`;\r",
+							"\r",
+							"\r",
+							"// Set visualizer\r",
+							"pm.visualizer.set(template, {\r",
+							"    // Pass the response body parsed as JSON as `data`\r",
+							"    response: pm.response.json()\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/Professors/4/sectionEnrollments?section_id=5",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"Professors",
+						"4",
+						"sectionEnrollments"
+					],
+					"query": [
+						{
+							"key": "section_id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Professors/:id/sectionEnrollments",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/Professors/4/sectionEnrollments?student_id=3&section_id=5&grade=2.25",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"Professors",
+						"4",
+						"sectionEnrollments"
+					],
+					"query": [
+						{
+							"key": "student_id",
+							"value": "3"
+						},
+						{
+							"key": "section_id",
+							"value": "5"
+						},
+						{
+							"key": "grade",
+							"value": "2.25"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Courses",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"    <table bgcolor=\"#FFFFFF\">\r",
+							"        <tr>\r",
+							"            <th>Course ID</th>\r",
+							"            <th>Department Name</th>\r",
+							"            <th>Course Name</th>\r",
+							"            <th>Credits</th>\r",
+							"        </tr>\r",
+							"\r",
+							"        {{#each response}}\r",
+							"            <tr>\r",
+							"                <td>{{0}}</td>\r",
+							"                <td>{{1}}</td>\r",
+							"                <td>{{2}}</td>\r",
+							"                <td>{{3}}</td>\r",
+							"            </tr>\r",
+							"        {{/each}}\r",
+							"    </table>\r",
+							"`;\r",
+							"\r",
+							"\r",
+							"// Set visualizer\r",
+							"pm.visualizer.set(template, {\r",
+							"    // Pass the response body parsed as JSON as `data`\r",
+							"    response: pm.response.json()\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/courses",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"courses"
+					],
+					"query": [
+						{
+							"key": "course_id",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Course Insert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/courses?department_id=1&name=Yeni Ders&credits=4",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"courses"
+					],
+					"query": [
+						{
+							"key": "department_id",
+							"value": "1"
+						},
+						{
+							"key": "name",
+							"value": "Yeni Ders"
+						},
+						{
+							"key": "credits",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DatabaseBatchOperations/insertAllRecords",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/databaseBatchOperations/insertAllRecords",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"databaseBatchOperations",
+						"insertAllRecords"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DatabaseBatchOperations/removeAllRecords",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/databaseBatchOperations/removeAllRecords",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"databaseBatchOperations",
+						"removeAllRecords"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DatabaseBatchOperations/createSchema",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/databaseBatchOperations/createSchema",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"databaseBatchOperations",
+						"createSchema"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
