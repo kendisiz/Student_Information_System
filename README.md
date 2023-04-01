@@ -53,5 +53,6 @@ npm start
 - Or instead of cloning, start docker container of the web server too.
 
 ```
+docker build . -t myusername/myexpressapp
 docker run --rm -it --network my-network --name myexpressapp myusername/myexpressapp
 ```
