@@ -7,13 +7,14 @@ const config = {
         type: 'default',
         options: {
             userName: 'sa', // update me
-            password: 'Parola1' // update me
+            password: 'yourStrong(!)Password' // update me
         }
     },
     options: {
         port: 1433,
         trustServerCertificate: true,
-        database: 'OIBS4_English',
+        // database: 'OIBS4_English',
+        database: 'master',
         rowCollectionOnRequestCompletion: true
     }
 }
