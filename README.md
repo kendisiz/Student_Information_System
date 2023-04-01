@@ -30,16 +30,16 @@ Database design's Crowd's Foot diagram:
 
 ## How to Start Application
 
-- Create docker container of SQL Server:
+- Start docker container of SQL Server:
 
 ```
 docker run --rm -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=yourStrong(!)Password" -e "MSSQL_PID=Express" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2022-latest
 ```
 
-- Clone this repository and create web server
+- Clone this repository and start the web server
 
 ```
 git clone https://github.com/kendisiz/Student_Information_System.git
-cd Student_Information_System
+cd Student_Information_System/backend/ExpressJS
 npm start
 ```
