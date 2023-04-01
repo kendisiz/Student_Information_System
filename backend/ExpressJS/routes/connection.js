@@ -2,7 +2,7 @@ const Connection = require('tedious').Connection;
 
 // Create connection to database
 const config = {
-    server: 'localhost',
+    server: 'mysqlserver', // 'localhost'
     authentication: {
         type: 'default',
         options: {
@@ -24,6 +24,7 @@ const connection = new Connection(config);
 connection.on('connect', function (err) {
     if (err) {
         console.log(err);
+        process.exit();
     } else {
         console.log('Connected to the MSSQL Server');
     }

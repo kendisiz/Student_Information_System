@@ -36,7 +36,7 @@ Database design's Crowd's Foot diagram:
 docker run --rm -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=yourStrong(!)Password" -e "MSSQL_PID=Express" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2022-latest
 ```
 
-- Clone this repository and start the web server
+- Clone this repository and start the web server. Dependencies are git, nodejs and npm.
 
 ```
 git clone https://github.com/kendisiz/Student_Information_System.git
