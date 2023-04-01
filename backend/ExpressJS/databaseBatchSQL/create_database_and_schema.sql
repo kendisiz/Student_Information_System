@@ -1,3 +1,5 @@
+CREATE DATABASE STUDENT_INFORMATION;
+
 CREATE TABLE Academic_Personnel (
 	academic_personnel_id int IDENTITY(1, 1) PRIMARY KEY,
 	department_id int,
