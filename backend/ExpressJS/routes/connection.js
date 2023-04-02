@@ -1,17 +1,18 @@
+require('dotenv').config();
 const Connection = require('tedious').Connection;
 
 // Create connection to database
 const config = {
-    server: 'mysqlserver', // 'localhost'
+    server: process.env.DB_HOST, // 'localhost'
     authentication: {
         type: 'default',
         options: {
-            userName: 'sa', // update me
-            password: 'yourStrong(!)Password' // update me
+            userName: process.env.DB_USER, // sa
+            password: process.env.DB_PWD // yourStrong(!)Password
         }
     },
     options: {
-        port: 1433,
+        port: parseInt(process.env.DB_PORT), // 1433
         trustServerCertificate: true,
         // database: 'OIBS4_English',
         database: 'master',

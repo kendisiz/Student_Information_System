@@ -39,7 +39,11 @@ docker network create my-network
 - Start docker container of SQL Server:
 
 ```
-docker run --network my-network --name mysqlserver --rm -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=yourStrong(!)Password' -e 'MSSQL_PID=Express' -p 1433:1433 -d mcr.microsoft.com/mssql/server:2022-latest
+docker run --rm --name my-mssqlserver -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=yourStrong(!)Password' -p 1434:1433 -d mcr.microsoft.com/mssql/server:2022-latest
+```
+
+```
+docker run --network my-network --name my-mssqlserver --rm -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=yourStrong(!)Password' -e 'MSSQL_PID=Express' -p 1433:1433 -d mcr.microsoft.com/mssql/server:2022-latest
 ```
 
 - Clone this repository and start the web server. Dependencies are git, nodejs and npm.
