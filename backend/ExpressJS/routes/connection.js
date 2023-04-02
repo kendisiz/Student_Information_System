@@ -15,7 +15,7 @@ const config = {
         port: parseInt(process.env.DB_PORT), // 1433
         trustServerCertificate: true,
         // database: 'OIBS4_English',
-        database: 'master',
+        // database: 'master',
         rowCollectionOnRequestCompletion: true
     }
 }
