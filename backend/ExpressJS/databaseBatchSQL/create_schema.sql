@@ -1,7 +1,3 @@
-CREATE DATABASE STUDENT_INFORMATION;
-USE STUDENT_INFORMATION;
-GO
-
 CREATE TABLE Academic_Personnel (
 	academic_personnel_id int IDENTITY(1, 1) PRIMARY KEY,
 	department_id int,

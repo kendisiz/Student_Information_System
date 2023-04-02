@@ -31,8 +31,10 @@ function databaseOperations(query, callback) {
   // Prepare SQL command
   console.log(query);
   let sql;
-  if (query.operationType === 'createDatabaseAndSchema')
-    sql = fs.readFileSync('databaseBatchSQL/create_database_and_schema.sql', 'utf-8');
+  if (query.operationType === 'createDatabase')
+    sql = fs.readFileSync('databaseBatchSQL/create_database.sql', 'utf-8');
+  else if (query.operationType === 'createSchema')
+    sql = fs.readFileSync('databaseBatchSQL/create_schema.sql', 'utf-8');
   else if (query.operationType === 'createSchema')
     sql = fs.readFileSync('databaseBatchSQL/create_schema.sql', 'utf-8');
   else if (query.operationType === 'insertAllRecords')
