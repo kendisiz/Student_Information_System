@@ -33,6 +33,8 @@ function databaseOperations(query, callback) {
   let sql;
   if (query.operationType === 'createDatabase')
     sql = fs.readFileSync('databaseBatchSQL/create_database.sql', 'utf-8');
+  else if (query.operationType === 'useDatabase')
+    sql = fs.readFileSync('databaseBatchSQL/use_database.sql', 'utf-8');
   else if (query.operationType === 'createSchema')
     sql = fs.readFileSync('databaseBatchSQL/create_schema.sql', 'utf-8');
   else if (query.operationType === 'createSchema')
