@@ -34,25 +34,26 @@ Database design's Crowd's Foot diagram:
 
 ```
 git clone https://github.com/kendisiz/Student_Information_System.git
-npm start
+cd Student_Information_System
 ```
 
 - Use docker compose:
 
 ```
 docker compose up
-open localhost:3000/connectdb
-open POSTMAN
-send queries
 ```
 
-- Here are some screenshots from POSTMAN:
+- After database container gets ready in a few seconds, open localhost:3000/connectdb
+
+- open Postman and send queries using it.
+
+### Postman Screenshots
 
 - Get all students:
 
   ![Get all students](./getStudents.png)
 
-- Insert a new students:
+- Insert a new student:
 
   ![Insert a new students](./insertStudent.png)
 
