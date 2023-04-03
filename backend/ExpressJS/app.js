@@ -1,5 +1,6 @@
 'use strict';
 
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -7,7 +8,6 @@ const logger = require('morgan');
 const cors = require('cors')
 
 
-const indexRouter = require('./routes/index');
 const studentsRouter = require('./routes/Students');
 const professorsRouter = require('./routes/Professors');
 const semestersRouter = require('./routes/Semesters');
@@ -28,7 +28,14 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+app.use('/connectdb', (req, res, next) => {
+    // Start connection when / is requested
+    const conn = require('./routes/connection');
+    const connection = conn.connection;
+    console.log('connection is initiated');
+    connection.connect();
+    res.send('database connection is initiated...');
+});
 app.use('/students', studentsRouter);
 app.use('/professors', professorsRouter);
 app.use('/semesters', semestersRouter);
@@ -51,5 +58,7 @@ app.use('/professors/:id/sectionEnrollments', (req, res, next) => {
 }, professorsSectionEnrollmentsRouter);
 
 app.use('/databaseBatchOperations', databaseBatchOperationsRouter);
+
+console.log(`connection will be initiated by requesting http://localhost:${process.env.PORT}/connectdb`);
 
 module.exports = app;

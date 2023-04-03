@@ -30,6 +30,7 @@ connection.on('connect', function (err) {
         console.log('Connected to the MSSQL Server');
     }
 });
-connection.connect();
+// Do not start connection until database is available
+// connection.connect();
 
 exports.connection = connection;
