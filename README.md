@@ -30,38 +30,14 @@ Database design's Crowd's Foot diagram:
 
 ## How to Start Application
 
-- Create a docker network first: (https://www.tutorialworks.com/container-networking/)
-
-```
-docker network create my-network
-```
-
-- Start docker container of SQL Server:
-
-```
-docker run --rm --name my-mssqlserver -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=yourStrong(!)Password' -p 1434:1433 -d mcr.microsoft.com/mssql/server:2022-latest
-```
-
-```
-docker run --network my-network --name my-mssqlserver --rm -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=yourStrong(!)Password' -e 'MSSQL_PID=Express' -p 1433:1433 -d mcr.microsoft.com/mssql/server:2022-latest
-```
-
-- Clone this repository and start the web server. Dependencies are git, nodejs and npm.
+- Clone this repository.
 
 ```
 git clone https://github.com/kendisiz/Student_Information_System.git
-cd Student_Information_System/backend/ExpressJS
 npm start
 ```
 
-- Or instead of cloning, start docker container of the web server too.
-
-```
-docker build . -t myusername/myexpressapp
-docker run --rm -it --network my-network --name myexpressapp myusername/myexpressapp
-```
-
-- Or use docker compose:
+- Use docker compose:
 
 ```
 docker compose up
@@ -70,6 +46,16 @@ open POSTMAN
 send queries
 ```
 
-- Postman Collection:
+- Here are some screenshots from POSTMAN:
 
-(https://api.postman.com/collections/26211311-167174af-68a3-4c2c-914d-2ae3840a169a?access_key=PMAT-01GX1REEPKC09Y832Q25Q65R21)
+- Get all students:
+
+  ![Get all students](./getStudents.png)
+
+- Insert a new students:
+
+  ![Insert a new students](./insertStudent.png)
+
+- Get all sections:
+
+  ![Get all sections](./getSections.png)
