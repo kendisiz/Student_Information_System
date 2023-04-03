@@ -11,7 +11,7 @@ import {
 export default function Student(props: any) {
   const fetchStudent = async (): Promise<any[]> => {
     const student = await fetch(
-      `http://localhost:3000/students/${props.studentID}`
+      `https://jsonplaceholder.typicode.com/todos/${props.studentID}`
     );
     const studentJson = await student.json();
     console.log(studentJson);
@@ -34,8 +34,11 @@ export default function Student(props: any) {
   return (
     <div>
       <ul>
-        {data[0]?.map((field: any) => (
-          <li key={field}>{field}</li>
+        {Object.entries(data).map((pair: any) => (
+          <li key={pair[0]}>
+            {pair[0]}
+            {pair[1]}
+          </li>
         ))}
       </ul>
     </div>

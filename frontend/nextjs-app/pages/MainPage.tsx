@@ -11,7 +11,9 @@ import {
 
 export default function MainPage() {
   const fetchSemesters = async (): Promise<any[]> => {
-    const semesters = await fetch("http://localhost:3000/semesters");
+    const semesters = await fetch(
+      "https://jsonplaceholder.typicode.com/todos/"
+    );
     const semestersJson = await semesters.json();
     console.log(semestersJson);
     return semestersJson;
@@ -34,12 +36,11 @@ export default function MainPage() {
     <main>
       <div>
         <ul>
-          {data?.map((semester) => (
-            <ul key={semester[0]}>
-              <li>{semester[0]}</li>
-              <li>{semester[1]}</li>
-              <li>{semester[2]}</li>
-              <li>{semester[3].toString()}</li>
+          {data?.map((todo) => (
+            <ul key={todo.userID}>
+              <li>{todo.id}</li>
+              <li>{todo.title}</li>
+              <li>{todo.completed}</li>
             </ul>
           ))}
         </ul>

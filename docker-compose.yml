@@ -6,13 +6,16 @@ services:
       - ACCEPT_EULA=Y
       - MSSQL_SA_PASSWORD=yourStrong(!)Password
     ports:
-      - "1433:1433"
-  webserver:
-    image: kendisiz/my-express-app
+      - "5533:1433" # 5533 is for SQL Server Management Studio connections
+  backend:
+    build: backend/ExpressJS/
     environment:
       - DB_PWD=yourStrong(!)Password
       - DB_PORT=1433
       - DB_HOST=database
     ports:
       - 3000:3000
-              
+  frontend:
+    build: frontend/nextjs-app
+    ports:
+      - 3001:3001
