@@ -61,6 +61,15 @@ docker build . -t myusername/myexpressapp
 docker run --rm -it --network my-network --name myexpressapp myusername/myexpressapp
 ```
 
+- Or use docker compose:
+
+```
+docker compose up
+open localhost:3000/connectdb
+open POSTMAN
+send queries
+```
+
 - Postman Collection:
 
 (https://api.postman.com/collections/26211311-167174af-68a3-4c2c-914d-2ae3840a169a?access_key=PMAT-01GX1REEPKC09Y832Q25Q65R21)
