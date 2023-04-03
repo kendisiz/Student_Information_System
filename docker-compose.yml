@@ -13,9 +13,12 @@ services:
       - DB_PWD=yourStrong(!)Password
       - DB_PORT=1433
       - DB_HOST=database
+      - PORT=3001
     ports:
-      - 3000:3000
+      - 3001:3001
   frontend:
     build: frontend/nextjs-app
     ports:
-      - 3001:3000
+      - 3000:3000
+    volumes:
+      - ./frontend/nextjs-app/pages:/nextjs/app/pages
