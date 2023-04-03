@@ -18,4 +18,4 @@ services:
   frontend:
     build: frontend/nextjs-app
     ports:
-      - 3001:3001
+      - 3001:3000
